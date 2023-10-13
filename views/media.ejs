@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/assets/css/media.css">
+
+  <title>
+    <%= type %>
+  </title>
+</head>
+
+<body>
+  <div class="container">
+    <%- include('./components/navbar.ejs') %>
+    <div class="elements">
+      <% for (const media of medias) { %>
+        <div class="element">
+          <% if (type==="image" ) { %>
+            <img src="<%= media.uri %>" alt="<%= media.title %>" loading="lazy">
+            <% } %>
+          <% if (type==="audio" ) { %>
+            <audio controls>
+              <source src="\<%= media.uri %>" type="audio/mp3">
+              Your browser does not support the audio element.
+            </audio>
+          <% } %>
+          <% if (type==="video" ) { %>
+            <video controls>
+              <source src="<%= media.uri %>" type="audio/mp4">
+              Your browser does not support the video tag.
+            </video>
+          <% } %>
+          <h2>
+            <%= media.title %>
+          </h2>
+          <small>
+            <%= media.description %>
+          </small>
+        </div>
+        <% } %>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <title>Media uploader</title>
+</head>
+<body>
+  <div class="container">
+    <%- include('./components/navbar.ejs') %>
+    <h1 class="title">Share your media</h1>
+    <form action="/api/upload" method="post" enctype="multipart/form-data">
+      <div class="field">
+        <label for="title">Title</label>
+        <input type="text" name="title" maxlength="50" required>
+      </div>
+      <div class="field">
+        <label for="description">Description</label>
+        <input type="text" name="description" maxlength="255">
+      </div>
+      <div class="field">
+        <label for="media">Media</label>
+        <input type="file" name="media" accept=".png, .jpg, .jpeg, .webp, .mkv, .mov, .mp4, .mp3, .wav" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
